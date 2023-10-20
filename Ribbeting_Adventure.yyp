@@ -34,6 +34,10 @@
     "IDEVersion": "2023.6.0.92",
   },
   "resources": [
+    {"id":{"name":"spr_topInfluencer","path":"sprites/spr_topInfluencer/spr_topInfluencer.yy",},},
+    {"id":{"name":"spr_classFrog","path":"sprites/spr_classFrog/spr_classFrog.yy",},},
+    {"id":{"name":"spr_mosquito","path":"sprites/spr_mosquito/spr_mosquito.yy",},},
+    {"id":{"name":"spr_dragonfly","path":"sprites/spr_dragonfly/spr_dragonfly.yy",},},
     {"id":{"name":"obj_block","path":"objects/obj_block/obj_block.yy",},},
     {"id":{"name":"obj_classyFrog","path":"objects/obj_classyFrog/obj_classyFrog.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},

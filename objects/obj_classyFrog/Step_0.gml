@@ -1,23 +1,121 @@
-if (using_tongue) {
-}
-else {
-	if (keyboard_check(vk_left) and !instance_place(x-move_speed, y, obj_block)) {
-		x += -move_speed
-	}
+grounded = (instance_place(x, y + 1, obj_block))
 
-	if (keyboard_check(vk_right) and !instance_place(x+move_speed, y, obj_block)) {
-		x += move_speed
-	}
-	if (keyboard_check(vk_up)) {
-		if (instance_place(x, y+1, obj_block)) {
-		vspeed = jump_height
+var _keyLeft = keyboard_check(ord("A"))
+var _keyRight = keyboard_check(ord("D"))
+var _keyUp = keyboard_check_pressed(ord("W"))
+
+switch(state)
+{
+	case States.regular: 
+	{
+		// checks which key is pressed and which direction to move and 
+		// accelerates by move speed  
+		var dir = _keyRight - _keyLeft
+		hSpeed += dir * move_speed
+		if(dir == 0)
+		{
+			hSpeed = 0	
 		}
+		
+		// hSpeed is clamped by move_speed
+		hSpeed = clamp(hSpeed, -move_speed, move_speed)
+		
+		vSpeed += grav
+		
+		// checks for up input and if the player is grounded
+		if((_keyUp) && (grounded))
+		{
+			grounded = false
+			vSpeed = jump_height
+		}
+		
+		// checks if left mouse button is pressed, then calculates the direction and distance
+		// of the mouse click relative to the character position, then changes states to grappling
+		if(mouse_check_button_pressed(mb_left)) 
+		{
+			tongueX = x
+			tongueY = y
+			grappleX = mouse_x
+			grappleY = mouse_y
+			
+			tongueAngleVelocity = 0
+			tongueAngle = point_direction(grappleX, grappleY, x, y)
+			tongueLength = point_distance(grappleX, grappleY, x, y)
+			
+			state = States.grappling
+		}
+
+		 break;
 	}
-	if (instance_place(x, y+1, obj_block)) {
-		gravity = 0
+	
+	
+	case States.grappling:
+	{
+		// acceleration of the player when grappling based on their angle
+		var _tongueAngleAcceleration = -0.2 * dcos(tongueAngle)
+		
+		tongueAngleVelocity += _tongueAngleAcceleration
+		tongueAngle += tongueAngleVelocity
+		tongueAngleVelocity *= 0.99
+		
+		tongueX = grappleX + lengthdir_x(tongueLength, tongueAngle)
+		tongueY = grappleY + lengthdir_y(tongueLength, tongueAngle)
+		
+		hSpeed = tongueX - x
+		vSpeed = tongueY - y
+		
+		// hold left or right to swing while grappled
+		if(_keyLeft) 
+		{
+			tongueAngleVelocity -= .0325
+		}
+		
+		if(_keyRight) 
+		{
+			tongueAngleVelocity += .0325
+		}
+		
+		// input up to end the grapple
+		if(_keyUp)
+		{
+			state = States.regular
+		}
+	} break;
+	
+}
+
+// horizontal collision checking
+if(instance_place(x + hSpeed, y, obj_block))
+{
+	while(!instance_place(x + sign(hSpeed), y, obj_block)) 
+	{
+		x += sign(hSpeed)
 	}
-	else gravity = game_gravity
-	if vspeed >= max_vspeed {
-		vspeed = max_vspeed
+	
+	hSpeed = 0
+	
+	if(state == States.grappling)
+	{
+		tongueAngle = point_direction(grappleX, grappleY, x, y)
+		tongueAngleVelocity = 0
 	}
 }
+x += hSpeed
+
+// vertical collision checking
+if(instance_place(x, y + vSpeed, obj_block))
+{
+	while(!instance_place(x, y + sign(vSpeed), obj_block)) 
+	{
+		y += sign(vSpeed)		
+	}
+	
+	vSpeed = 0
+	
+	if(state == States.grappling)
+	{
+		tongueAngle = point_direction(grappleX, grappleY, x, y)
+		tongueAngleVelocity = 0
+	}
+}
+y += vSpeed

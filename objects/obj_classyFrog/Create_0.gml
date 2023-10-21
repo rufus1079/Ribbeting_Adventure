@@ -1,2 +1,19 @@
 gravity_direction = 270
-jump_height = initial_jump_height
+
+hSpeed = 0
+vSpeed = 0
+
+grav = .25
+
+tongueX = x
+tongueY = y
+
+enum States {
+	regular,
+	jumping,
+	tongue_out,
+	grappling
+}
+
+state = -1
+state = States.regular

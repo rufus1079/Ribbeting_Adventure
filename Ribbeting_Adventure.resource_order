@@ -19,6 +19,7 @@
   "ResourceOrderSettings": [
     {"name":"spr_topInfluencer","order":3,"path":"sprites/spr_topInfluencer/spr_topInfluencer.yy",},
     {"name":"spr_mosquito","order":1,"path":"sprites/spr_mosquito/spr_mosquito.yy",},
+    {"name":"spr_block","order":4,"path":"sprites/spr_block/spr_block.yy",},
     {"name":"spr_dragonfly","order":2,"path":"sprites/spr_dragonfly/spr_dragonfly.yy",},
     {"name":"obj_block","order":1,"path":"objects/obj_block/obj_block.yy",},
   ],

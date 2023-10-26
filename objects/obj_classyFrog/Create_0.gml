@@ -8,12 +8,20 @@ grav = .25
 tongueX = x
 tongueY = y
 
+
 enum States {
 	regular,
-	jumping,
-	tongue_out,
-	grappling
+	grappling,
+	hit_enemy
 }
+
+/*enum TongueStates {
+	extending,
+	grappling,
+	hit_enemy,
+	missed
+	
+}*/
 
 state = -1
 state = States.regular

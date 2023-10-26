@@ -6,3 +6,4 @@ if(state == States.grappling)
 {
 	draw_line_width(grappleX, grappleY, tongueX, tongueY, 2)	
 }
+

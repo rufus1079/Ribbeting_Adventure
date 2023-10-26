@@ -31,21 +31,26 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.6.0.92",
+    "IDEVersion": "2023.8.2.108",
   },
   "resources": [
     {"id":{"name":"spr_topInfluencer","path":"sprites/spr_topInfluencer/spr_topInfluencer.yy",},},
     {"id":{"name":"spr_classFrog","path":"sprites/spr_classFrog/spr_classFrog.yy",},},
     {"id":{"name":"spr_mosquito","path":"sprites/spr_mosquito/spr_mosquito.yy",},},
     {"id":{"name":"spr_block","path":"sprites/spr_block/spr_block.yy",},},
+    {"id":{"name":"obj_dragonfly","path":"objects/obj_dragonfly/obj_dragonfly.yy",},},
+    {"id":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},},
     {"id":{"name":"spr_dragonfly","path":"sprites/spr_dragonfly/spr_dragonfly.yy",},},
+    {"id":{"name":"obj_mosquito","path":"objects/obj_mosquito/obj_mosquito.yy",},},
     {"id":{"name":"obj_block","path":"objects/obj_block/obj_block.yy",},},
+    {"id":{"name":"obj_topinfluencer","path":"objects/obj_topinfluencer/obj_topinfluencer.yy",},},
     {"id":{"name":"obj_classyFrog","path":"objects/obj_classyFrog/obj_classyFrog.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
   ],
   "RoomOrderNodes": [
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
   ],
+  "templateType": null,
   "TextureGroups": [
     {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"Default","autocrop":true,"border":2,"compressFormat":"bz2","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"targets":-1,},
   ],

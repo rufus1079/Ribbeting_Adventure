@@ -42,13 +42,17 @@ switch(state)
 			tongueAngle = point_direction(grappleX, grappleY, x, y)
 			tongueLength = point_distance(grappleX, grappleY, x, y)
 			
-			state = States.grappling
+			// if there is a block at the mouse position, start grappling
+			if(instance_position(mouse_x, mouse_y, obj_block))
+			{		
+				state = States.grappling
+			}
 		}
 
 		 break;
 	}
 	
-	
+
 	case States.grappling:
 	{
 		// acceleration of the player when grappling based on their angle
@@ -57,7 +61,7 @@ switch(state)
 		tongueAngleVelocity += _tongueAngleAcceleration
 		tongueAngle += tongueAngleVelocity
 		tongueAngleVelocity *= 0.99
-		
+			
 		tongueX = grappleX + lengthdir_x(tongueLength, tongueAngle)
 		tongueY = grappleY + lengthdir_y(tongueLength, tongueAngle)
 		
@@ -69,7 +73,7 @@ switch(state)
 		{
 			tongueAngleVelocity -= .0325
 		}
-		
+	
 		if(_keyRight) 
 		{
 			tongueAngleVelocity += .0325
@@ -78,6 +82,7 @@ switch(state)
 		// input up to end the grapple
 		if(_keyUp)
 		{
+			vSpeed += jump_height / 4
 			state = States.regular
 		}
 	} break;

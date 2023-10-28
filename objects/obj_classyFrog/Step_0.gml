@@ -4,6 +4,11 @@ var _keyLeft = keyboard_check(ord("A"))
 var _keyRight = keyboard_check(ord("D"))
 var _keyUp = keyboard_check_pressed(ord("W"))
 
+if(currentHypeMeter > 0)
+{
+	currentHypeMeter -= 1
+}
+
 switch(state)
 {
 	case States.regular: 
@@ -54,6 +59,13 @@ switch(state)
 			if(instance_position(mouse_x, mouse_y, obj_block))
 			{		
 				state = States.grappling
+			}
+			
+			if(canEatEnemy())
+			{
+				eatEnemy()
+				tongue_state = TongueStates.tongue_out
+				alarm[0] = 15
 			}
 		}
 

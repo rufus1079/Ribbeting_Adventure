@@ -42,13 +42,14 @@ switch(state)
 		
 		// checks for up input and if the player is grounded
 		// changes sprite for hopping 
+		// adds hop audio
 		if((_keyUp) && (grounded))
 		{
 			vSpeed = -currentJumpHeight
 			grounded = false
-			if(vSpeed > 0) {
-				sprite_index = spr_classyFrogHop
-			}
+			audio_play_sound(snd_jump,0,false)
+			sprite_index = spr_classyFrogHop
+			
 		}
 		
 		// checks if left mouse button is pressed, then calculates the direction and distance
@@ -68,6 +69,7 @@ switch(state)
 			if(instance_position(mouse_x, mouse_y, obj_block))
 			{		
 				state = States.grappling
+				audio_play_sound(snd_grapple,0,false)
 			}
 	
 			if(canEatEnemy())
@@ -75,6 +77,7 @@ switch(state)
 				eatEnemy()
 				tongue_state = TongueStates.tongue_out
 				alarm[0] = 15
+				audio_play_sound(snd_eatEnemy,0,false)
 			}
 		}
 

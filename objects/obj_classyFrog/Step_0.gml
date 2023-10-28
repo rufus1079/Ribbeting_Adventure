@@ -14,6 +14,12 @@ switch(state)
 {
 	case States.regular: 
 	{
+		//sets the default sprite
+		if grounded
+		{
+			sprite_index = spr_classyFrog
+		}
+		
 		// checks which key is pressed and which direction to move and 
 		// accelerates by move speed  
 		var dir = _keyRight - _keyLeft
@@ -29,10 +35,12 @@ switch(state)
 		vSpeed += grav
 		
 		// checks for up input and if the player is grounded
+		// changes sprite for hopping 
 		if((_keyUp) && (grounded))
 		{
 			grounded = false
 			vSpeed = jump_height
+			sprite_index = spr_classyFrogHop
 		}
 		
 		// checks if left mouse button is pressed, then calculates the direction and distance
@@ -69,6 +77,17 @@ switch(state)
 
 	case States.grappling:
 	{
+		//set the default grappling sprite
+		if grounded 
+		{
+			sprite_index = spr_classyFrogOpenMouth
+		}
+		//set the jumping grappling sprite
+		if !grounded 
+		{
+			sprite_index = spr_classyFrogOpenMouthHop
+		}
+		
 		// acceleration of the player when grappling based on their angle
 		var _tongueAngleAcceleration = -0.2 * dcos(tongueAngle)
 		

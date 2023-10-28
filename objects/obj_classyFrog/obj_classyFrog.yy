@@ -34,8 +34,8 @@
   ],
   "solid": false,
   "spriteId": {
-    "name": "spr_classFrog",
-    "path": "sprites/spr_classFrog/spr_classFrog.yy",
+    "name": "spr_classyFrog",
+    "path": "sprites/spr_classyFrog/spr_classyFrog.yy",
   },
   "spriteMaskId": null,
   "visible": true,

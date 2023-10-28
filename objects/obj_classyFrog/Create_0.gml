@@ -1,28 +1,30 @@
 gravity_direction = 270
+maxHypeMeter = 2500
+currentHypeMeter = maxHypeMeter / 2
 
 hSpeed = 0
 vSpeed = 0
+
+hSpeedCarry = 0
+hSpeedSlowdown = 0.05
 
 grav = .25
 
 tongueX = x
 tongueY = y
 
-maxHypeMeter = 1000
-currentHypeMeter = maxHypeMeter
 
 
 
 enum States {
 	regular,
-	grappling,
+	grappling
 }
 
 enum TongueStates {
 	tongue_out,
 	tongue_in
 }
-
 
 
 state = -1
@@ -40,11 +42,11 @@ function canEatEnemy(){
 
 function eatEnemy()
 {
-	if((currentHypeMeter + 200) > maxHypeMeter)
+	if((currentHypeMeter + obj_enemy.hypeMeterValue) > maxHypeMeter)
 	{
 		currentHypeMeter = maxHypeMeter
 	} else {
-		currentHypeMeter += 200
+		currentHypeMeter += obj_enemy.hypeMeterValue
 	}
 	
 }

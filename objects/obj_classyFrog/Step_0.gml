@@ -7,18 +7,22 @@ var _keyUp = keyboard_check_pressed(ord("W"))
 if(currentHypeMeter > 0)
 {
 	currentHypeMeter -= 1
+	currentJumpHeight = int64(currentHypeMeter / 150)
 }
+
 
 switch(state)
 {
 	case States.regular: 
 	{
-		//sets the default sprite 
+		
+		
+		//sets the default sprite
 		if grounded
 		{
 			sprite_index = spr_classyFrog
 		}
-	
+		
 		// checks which key is pressed and which direction to move and 
 		// accelerates by move speed  
 		var dir = _keyRight - _keyLeft
@@ -28,8 +32,11 @@ switch(state)
 			hSpeed = 0	
 		}
 		
-		// hSpeed is clamped by move_speed
+		
 		hSpeed = clamp(hSpeed, -move_speed, move_speed)
+		hSpeedCarry = lerp(hSpeedCarry, 0, hSpeedSlowdown)
+		hSpeed = lerp(hSpeed, 0, hSpeedSlowdown)
+		hSpeed = hSpeed + hSpeedCarry
 		
 		vSpeed += grav
 		
@@ -37,9 +44,11 @@ switch(state)
 		// changes sprite for hopping 
 		if((_keyUp) && (grounded))
 		{
+			vSpeed = -currentJumpHeight
 			grounded = false
-			vSpeed = jump_height
-			sprite_index = spr_classyFrogHop
+			if(vSpeed > 0) {
+				sprite_index = spr_classyFrogHop
+			}
 		}
 		
 		// checks if left mouse button is pressed, then calculates the direction and distance
@@ -60,7 +69,7 @@ switch(state)
 			{		
 				state = States.grappling
 			}
-			
+	
 			if(canEatEnemy())
 			{
 				eatEnemy()
@@ -85,7 +94,7 @@ switch(state)
 		{
 			sprite_index = spr_classyFrogOpenMouthHop
 		}
-			
+		
 		// acceleration of the player when grappling based on their angle
 		var _tongueAngleAcceleration = -0.2 * dcos(tongueAngle)
 		
@@ -113,9 +122,8 @@ switch(state)
 		// input up to end the grapple
 		if(_keyUp)
 		{
-			vSpeed += jump_height / 4
+			vSpeed -= currentJumpHeight / 2
 			state = States.regular
-			
 		}
 	} break;
 	
@@ -156,3 +164,4 @@ if(instance_place(x, y + vSpeed, obj_block))
 	}
 }
 y += vSpeed
+

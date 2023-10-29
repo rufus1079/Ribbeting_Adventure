@@ -1,5 +1,5 @@
-/// @description Insert description here
-// You can write your code in this editor
+// knocks the player back upon collision with an enemy
+
 if (y < other.y)
 {
     vSpeed = -10

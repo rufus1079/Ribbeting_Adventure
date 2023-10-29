@@ -8,8 +8,10 @@ if(currentHypeMeter > 0)
 {
 	currentHypeMeter -= 1
 	currentJumpHeight = int64(currentHypeMeter / 150)
+} else {
+	global.gameOver = true
+	room_goto(rm_lose)
 }
-
 
 switch(state)
 {

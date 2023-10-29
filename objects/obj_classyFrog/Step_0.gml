@@ -4,12 +4,15 @@ var _keyLeft = keyboard_check(ord("A"))
 var _keyRight = keyboard_check(ord("D"))
 var _keyUp = keyboard_check_pressed(ord("W"))
 
-if(currentHypeMeter > 0)
+// subtracts 1 from the hype meter every step and calculates the current jump height
+// if the hype meter is less than or equal to 150, lose the game
+if(currentHypeMeter > 150)
 {
 	currentHypeMeter -= 1
 	currentJumpHeight = int64(currentHypeMeter / 150)
 } else {
 	global.gameOver = true
+	audio_play_sound(snd_lose, 1, false)
 	room_goto(rm_lose)
 }
 
@@ -34,7 +37,7 @@ switch(state)
 			hSpeed = 0	
 		}
 		
-		
+		// knockback calculations
 		hSpeed = clamp(hSpeed, -move_speed, move_speed)
 		hSpeedCarry = lerp(hSpeedCarry, 0, hSpeedSlowdown)
 		hSpeed = lerp(hSpeed, 0, hSpeedSlowdown)
@@ -50,7 +53,9 @@ switch(state)
 			vSpeed = -currentJumpHeight
 			grounded = false
 			audio_play_sound(snd_jump,0,false)
-			sprite_index = spr_classyFrogHop
+			if (currentJumpHeight > 4) {
+				sprite_index = spr_classyFrogHop
+			}
 			
 		}
 		
@@ -73,11 +78,14 @@ switch(state)
 				state = States.grappling
 				audio_play_sound(snd_grapple,0,false)
 			}
-	
+			
+			// checks if the enemy is able to be eaten, then updates the sprite
+			// and adds its hype meter value to the hype meter
 			if(canEatEnemy())
 			{
 				eatEnemy()
 				tongue_state = TongueStates.tongue_out
+				sprite_index = spr_classyFrogOpenMouth
 				alarm[0] = 15
 				audio_play_sound(snd_eatEnemy,0,false)
 			}

@@ -20,6 +20,7 @@
   "ResourceOrderSettings": [
     {"name":"rm_title","order":3,"path":"rooms/rm_title/rm_title.yy",},
     {"name":"spr_topInfluencer","order":3,"path":"sprites/spr_topInfluencer/spr_topInfluencer.yy",},
+    {"name":"spr_barrier","order":20,"path":"sprites/spr_barrier/spr_barrier.yy",},
     {"name":"obj_instructionsController","order":11,"path":"objects/obj_instructionsController/obj_instructionsController.yy",},
     {"name":"spr_mosquito","order":1,"path":"sprites/spr_mosquito/spr_mosquito.yy",},
     {"name":"spr_classyFrogHop","order":1,"path":"sprites/spr_classyFrogHop/spr_classyFrogHop.yy",},
@@ -54,6 +55,7 @@
     {"name":"obj_topinfluencer","order":4,"path":"objects/obj_topinfluencer/obj_topinfluencer.yy",},
     {"name":"snd_lose","order":6,"path":"sounds/snd_lose/snd_lose.yy",},
     {"name":"snd_jump","order":2,"path":"sounds/snd_jump/snd_jump.yy",},
+    {"name":"obj_barrier","order":12,"path":"objects/obj_barrier/obj_barrier.yy",},
     {"name":"spr_skyLowMiddle","order":11,"path":"sprites/spr_skyLowMiddle/spr_skyLowMiddle.yy",},
     {"name":"snd_gameMusic","order":1,"path":"sounds/snd_gameMusic/snd_gameMusic.yy",},
   ],

@@ -39,6 +39,7 @@
     {"name":"spr_skyTop","order":9,"path":"sprites/spr_skyTop/spr_skyTop.yy",},
     {"name":"obj_enemy","order":7,"path":"objects/obj_enemy/obj_enemy.yy",},
     {"name":"obj_controller","order":6,"path":"objects/obj_controller/obj_controller.yy",},
+    {"name":"spr_platform","order":19,"path":"sprites/spr_platform/spr_platform.yy",},
     {"name":"rm_instructions","order":4,"path":"rooms/rm_instructions/rm_instructions.yy",},
     {"name":"spr_loseScreen","order":15,"path":"sprites/spr_loseScreen/spr_loseScreen.yy",},
     {"name":"spr_classyFrogOpenMouth","order":2,"path":"sprites/spr_classyFrogOpenMouth/spr_classyFrogOpenMouth.yy",},

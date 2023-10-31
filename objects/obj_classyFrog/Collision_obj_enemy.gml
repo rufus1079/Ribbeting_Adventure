@@ -15,7 +15,8 @@ else
         hSpeedCarry = 5;
     }
 }
-if !ifhit {
+
+if !ifhit and !audio_is_playing(snd_knockback) {
 	audio_play_sound(snd_knockback,0,false)
 	ifhit = true
 }

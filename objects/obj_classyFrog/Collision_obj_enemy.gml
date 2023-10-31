@@ -15,5 +15,9 @@ else
         hSpeedCarry = 5;
     }
 }
+if !ifhit {
+	audio_play_sound(snd_knockback,0,false)
+	ifhit = true
+}
 
 

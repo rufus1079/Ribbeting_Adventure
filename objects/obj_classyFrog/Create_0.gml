@@ -49,3 +49,5 @@ function eatEnemy()
 	}
 	
 }
+
+ifhit = false

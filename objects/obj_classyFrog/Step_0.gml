@@ -50,13 +50,10 @@ switch(state)
 		// adds hop audio
 		if((_keyUp) && (grounded))
 		{
-			vSpeed = -currentJumpHeight
+			vSpeed = -clamp(currentJumpHeight,7,11)
 			grounded = false
 			audio_play_sound(snd_jump,0,false)
-			if (currentJumpHeight > 4) {
-				sprite_index = spr_classyFrogHop
-			}
-			
+				sprite_index = spr_classyFrogHop			
 		}
 		
 		// checks if left mouse button is pressed, then calculates the direction and distance
@@ -178,3 +175,4 @@ if(instance_place(x, y + vSpeed, obj_block))
 }
 y += vSpeed
 
+ifhit = false

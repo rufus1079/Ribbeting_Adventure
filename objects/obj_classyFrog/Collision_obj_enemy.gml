@@ -18,6 +18,7 @@ else
 
 if !ifhit and !audio_is_playing(snd_knockback) {
 	audio_play_sound(snd_knockback,0,false)
+	currentHypeMeter -= 500
 	ifhit = true
 }
 

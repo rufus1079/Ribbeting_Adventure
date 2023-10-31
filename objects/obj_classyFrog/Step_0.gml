@@ -5,11 +5,13 @@ var _keyRight = keyboard_check(ord("D"))
 var _keyUp = keyboard_check_pressed(ord("W"))
 
 // subtracts 1 from the hype meter every step and calculates the current jump height
-// if the hype meter is less than or equal to 150, lose the game
-if(currentHypeMeter > 150)
+// if the hype meter is less than or equal to 1, lose the game
+// minimum jump height of 7, maximum jump height of 11
+if(currentHypeMeter > 1)
 {
 	currentHypeMeter -= 1
 	currentJumpHeight = int64(currentHypeMeter / 150)
+	currentJumpHeight = clamp(currentJumpHeight,7,11)
 } else {
 	global.gameOver = true
 	audio_play_sound(snd_lose, 1, false)

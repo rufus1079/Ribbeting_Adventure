@@ -29,10 +29,11 @@ state = States.regular
 
 tongue_state = TongueStates.tongue_in
 
-// checks to see if the mouse position is over an enemy object 
-// and if there are no blocks between the player and the enemy
+// checks to see if the mouse position is over an enemy object, if there
+// are no blocks between the player and the enemy, and if the player is
+// in the regular state
 function canEatEnemy(){
-	if(instance_position(mouse_x, mouse_y, obj_enemy) && collision_line(x, y, mouse_x, mouse_y, obj_block, false, false) == noone)
+	if(instance_position(mouse_x, mouse_y, obj_enemy) && collision_line(x, y, mouse_x, mouse_y, obj_block, false, false) == noone && state == States.regular)
 	{
 		return true;
 	}

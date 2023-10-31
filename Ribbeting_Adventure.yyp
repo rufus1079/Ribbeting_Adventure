@@ -80,6 +80,7 @@
     {"id":{"name":"spr_hypeMeter","path":"sprites/spr_hypeMeter/spr_hypeMeter.yy",},},
     {"id":{"name":"snd_knockback","path":"sounds/snd_knockback/snd_knockback.yy",},},
     {"id":{"name":"rm_lose","path":"rooms/rm_lose/rm_lose.yy",},},
+    {"id":{"name":"spr_menuScreenBG","path":"sprites/spr_menuScreenBG/spr_menuScreenBG.yy",},},
     {"id":{"name":"obj_block","path":"objects/obj_block/obj_block.yy",},},
     {"id":{"name":"snd_grapple","path":"sounds/snd_grapple/snd_grapple.yy",},},
     {"id":{"name":"obj_topinfluencer","path":"objects/obj_topinfluencer/obj_topinfluencer.yy",},},

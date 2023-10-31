@@ -61,6 +61,7 @@
     {"name":"spr_hypeMeter","order":21,"path":"sprites/spr_hypeMeter/spr_hypeMeter.yy",},
     {"name":"snd_knockback","order":7,"path":"sounds/snd_knockback/snd_knockback.yy",},
     {"name":"rm_lose","order":1,"path":"rooms/rm_lose/rm_lose.yy",},
+    {"name":"spr_menuScreenBG","order":28,"path":"sprites/spr_menuScreenBG/spr_menuScreenBG.yy",},
     {"name":"obj_block","order":1,"path":"objects/obj_block/obj_block.yy",},
     {"name":"snd_grapple","order":3,"path":"sounds/snd_grapple/snd_grapple.yy",},
     {"name":"obj_topinfluencer","order":4,"path":"objects/obj_topinfluencer/obj_topinfluencer.yy",},

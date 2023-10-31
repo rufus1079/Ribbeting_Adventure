@@ -4,6 +4,12 @@ var _keyLeft = keyboard_check(ord("A"))
 var _keyRight = keyboard_check(ord("D"))
 var _keyUp = keyboard_check_pressed(ord("W"))
 
+
+if y < 0 then
+{
+	y =room_height - 100
+	x += 550
+}
 // subtracts 1 from the hype meter every step and calculates the current jump height
 // if the hype meter is less than or equal to 1, lose the game
 // minimum jump height of 7, maximum jump height of 11

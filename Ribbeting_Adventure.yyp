@@ -32,7 +32,7 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.8.0.98",
+    "IDEVersion": "2023.6.0.92",
   },
   "resources": [
     {"id":{"name":"obj_cloud1","path":"objects/obj_cloud1/obj_cloud1.yy",},},
@@ -100,7 +100,6 @@
     {"roomId":{"name":"rm_win","path":"rooms/rm_win/rm_win.yy",},},
     {"roomId":{"name":"rm_instructions","path":"rooms/rm_instructions/rm_instructions.yy",},},
   ],
-  "templateType": null,
   "TextureGroups": [
     {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"Default","autocrop":true,"border":2,"compressFormat":"bz2","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"targets":-1,},
   ],
